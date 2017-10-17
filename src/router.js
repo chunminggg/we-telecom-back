@@ -16,7 +16,7 @@ const routers = [
 {
     path: '/home',
     meta: {
-        title: '超想去旅行'
+        title: '数码通讯后台'
     },
     component: (resolve) => require(['./views/index.vue'], resolve),
     children: [{

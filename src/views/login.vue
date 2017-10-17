@@ -1,7 +1,7 @@
 <template>
     <div class="layout ">
         <Card class="login" dis-hover>
-            <p slot="title">超想去旅行后台管理系统</p>
+            <p slot="title">数码通讯站后台管理系统</p>
             <Input v-model="userName">
             <span slot="prepend">账号</span>
             </Input>

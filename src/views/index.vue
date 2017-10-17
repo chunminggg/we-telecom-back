@@ -45,49 +45,34 @@
     margin: 15px auto;
 }
 </style>
+
 <template>
-    <div class="layout">
-        <Row type="flex">
-            <i-col span="5" class="layout-menu-left" style="background:white">
-                <Menu theme="light" width="auto" @on-select="jumpToUploadView">
-    
-                    <Submenu name="1">
-                        <template slot="title">
+<div class="layout">
+    <Row type="flex">
+        <i-col span="5" class="layout-menu-left" style="background:white">
+            <Menu theme="light" width="auto" @on-select="jumpToUploadView">
+
+                <Submenu name="1">
+                    <template slot="title">
                             <Icon type="ios-navigate"></Icon>
-                            咨询发布
-                        </template>
+                            产品管理
+</template>
                         <Menu-item name="1-1">
-                            发布产品
+                            发布套餐
                         </Menu-item>
-                        <Menu-item name="1-2">产品管理</Menu-item>
-                        <Menu-item name="1-6">资讯发布</Menu-item>
-                        <Menu-item name="1-7">咨询管理</Menu-item>
-                        <Menu-item name="1-3">主题发布</Menu-item>
-                        <Menu-item name="1-4">首页管理</Menu-item>
-                         <Menu-item name="1-5">主题管理</Menu-item>
+                        <Menu-item name="1-2">套餐管理</Menu-item>
+                        <Menu-item name="1-3">分类发布</Menu-item>
+                                                 <Menu-item name="1-5">分类管理</Menu-item>
+
                     </Submenu>
                     <Submenu name="2">
-                        <template slot="title">
-                            <Icon type="ios-keypad"></Icon>
-                            订单管理
-                        </template>
+<template slot="title">
+<Icon type="ios-keypad">
+</Icon>
+订单管理
+</template>
                         <Menu-item name="2-2">未完成订单</Menu-item>
                         <Menu-item name="2-1">完成订单</Menu-item>
-                    </Submenu>
-                    <Submenu name="3">
-                        <template slot="title">
-                            <Icon type="ios-analytics"></Icon>
-                            数据分析
-                        </template>
-                        <Menu-item name="3-1">客户统计</Menu-item>
-                        <Menu-item name="3-2">点击统计</Menu-item>
-                    </Submenu>
-                    <Submenu name="4">
-                        <template slot="title">
-                            <Icon type="ios-location"></Icon>
-                            前端页面
-                        </template>
-                        <Menu-item name="4-1">首页展示</Menu-item>
                     </Submenu>
                 </Menu>
             </i-col>
@@ -101,6 +86,7 @@
         </Row>
     </div>
 </template>
+
 <script>
 import uploadView from './upload'
 import AV from 'leancloud-storage';
@@ -113,26 +99,38 @@ export default {
 
         }
     },
-    created(){
+    created() {
         var currentUser = AV.User.current();
         if (!currentUser) {
-           this.$router.push('/')
+            this.$router.push('/')
         }
     },
     methods: {
         jumpToUploadView(name) {
             // debugger
-            if (name == '1-1') this.$router.push({ path: '/upload', name: 'upload', params: { 'productId': 'new' } })
+            if (name == '1-1') this.$router.push({
+                path: '/upload',
+                name: 'upload',
+                params: {
+                    'productId': 'new'
+                }
+            })
             if (name == '1-2') this.$router.push('/productManage')
             if (name == '1-3') this.$router.push('/theme')
             if (name == '1-4') this.$router.push('/mainScroll')
             if (name == '1-5') this.$router.push('/themeManage')
-            if (name == '1-6') this.$router.push({ path: '/news', name: 'news', params: { 'productId': 'new' } })
+            if (name == '1-6') this.$router.push({
+                path: '/news',
+                name: 'news',
+                params: {
+                    'productId': 'new'
+                }
+            })
             if (name == '1-7') this.$router.push('/newsManage')
             if (name == '2-2') this.$router.push('/reserveList')
             if (name == '3-1') this.$router.push('/users')
-            if(name == '3-2') this.$router.push('/productStatis')
-             if(name == '4-1') this.$router.push('/main')
+            if (name == '3-2') this.$router.push('/productStatis')
+            if (name == '4-1') this.$router.push('/main')
         },
     }
 }

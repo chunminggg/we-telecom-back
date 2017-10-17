@@ -1,8 +1,8 @@
 import AV from 'leancloud-storage';
 import moment from 'moment';
 moment.locale('zh-cn');
-var APP_ID = 'qDUQr0EmHHn3HOIqb3Re0IHa-gzGzoHsz';
-var APP_KEY = 'w2TRHW0KHUkt5mVHtgp9wa2s';
+var APP_ID = 'jyzblpP3fKs61WWXrKQUEc2U-gzGzoHsz';
+var APP_KEY = 'Cv0d5nD4Dns1DasL9CRV5m8f';
 AV.init({
     appId: APP_ID,
     appKey: APP_KEY
@@ -25,7 +25,7 @@ export default {
 
             return successCallback(file);
         }, function (error) {
-
+            debugger
             // 异常处理
             console.error(error);
         });
@@ -263,8 +263,10 @@ export default {
 
             var dataArray = [];
             for (var model of data) {
-                // model.attributes.endDate = model.attributes.endDate.toISOString().slice(0, 10)
-                // model.attributes.startDate = model.attributes.startDate.toISOString().slice(0, 10)
+                model.attributes.startDate = model.createdAt
+                model.attributes.endDate = model.updatedAt
+                model.attributes.endDate = model.attributes.endDate.toISOString().slice(0, 10)
+                model.attributes.startDate = model.attributes.startDate.toISOString().slice(0, 10)
                 model.attributes.uid = model.id;
                 dataArray.push(model.attributes);
             }

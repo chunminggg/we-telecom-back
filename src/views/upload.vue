@@ -15,45 +15,28 @@
 
 <template>
     <div class="content">
-        <h2>产品发布</h2>
+        <h2>套餐发布</h2>
         <Input v-model="productNumber" placeholder="" class="product">
-        <span slot="prepend">产品编号</span>
+        <span slot="prepend">套餐编号</span>
         </Input>
         <Input v-model="productName" placeholder="" class="product">
-        <span slot="prepend">产品名称</span>
+        <span slot="prepend">套餐名称</span>
         </Input>
-        <Input v-model="productPlace" placeholder="" class="product">
-        <span slot="prepend">出发城市</span>
-        </Input>
+
         <Input v-model="productPrice" placeholder="" class="product">
-        <span slot="prepend">产品价格</span>
+        <span slot="prepend">套餐价格</span>
         </Input>
         <Input v-model="productDes" placeholder="" class="product">
-        <span slot="prepend">产品描述</span>
-        </Input>
-        <Input v-model="productStartDate" placeholder="" class="product">
-        <span slot="prepend">开始时间</span>
+        <span slot="prepend">套餐简要描述</span>
         </Input>
         <div class="product">
-            <Button type="info" class="product" @click="priceSelect">价格添加</Button>
-            <div class="priceTag">
-            <Tag class="tagView" v-for="(item,index) in tagArray"  closable @on-close="handleClose(index)">{{item.date}} ￥{{item.price}}</Tag>
-            </div>
-        </div>
-        <div class="product">
-            <label>是否特价:</label>
+            <label>是否置顶:</label>
             <i-switch v-model="isRecommend"></i-switch>
-            <label>是否推荐:</label>
-            <i-switch v-model="isSpecialPrice"></i-switch>
-            <label>是否跟团游</label>
-            <i-switch v-model="isFollowTeam"></i-switch>
-            <label>是否自由行</label>
-            <i-switch v-model="isFreeTravel"></i-switch>
         </div>
-        <Select v-model="productTypeSelected" class="product" placeholder="请选择产品类型">
+        <Select v-model="productTypeSelected" class="product" placeholder="请选择套餐类型">
             <Option v-for="item in productTypes" :value="item.value" :key="item">{{ item.label }}</Option>
         </Select>
-        <Alert class="myAlert" type="warning">产品详情滚动图（至少传一张)</Alert>
+        <Alert class="myAlert" type="warning">套餐详情滚动图（至少传一张)</Alert>
         <image-upload class="product imageUpload" @send-image="getImageArray" :uploadList="imageArray">
 
         </image-upload>
@@ -84,7 +67,7 @@ export default {
     },
     data() {
         return {
-            richItems: [{ content: '', placeHolder: "线路特色" }, { content: '', placeHolder: "行程介绍" }, { content: '', placeHolder: "费用说明" }, { content: '', placeHolder: "预订须知" },],
+            richItems: [{ content: '', placeHolder: "套餐内容" }, { content: '', placeHolder: "活动介绍" }],
 
             productId: '',
             //产品编号

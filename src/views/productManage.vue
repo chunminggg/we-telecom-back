@@ -27,22 +27,6 @@
                         <Icon type="arrow-up-a"></Icon>
                         <span>置顶</span>
                     </Checkbox>
-                    <Checkbox label="isRecommend">
-                        <Icon type="navigate"></Icon>
-                        <span>推荐</span>
-                    </Checkbox>
-                    <Checkbox label="isSpecialPrice">
-                        <Icon type="star"></Icon>
-                        <span>特价</span>
-                    </Checkbox>
-                    <Checkbox label="isFreeTravel">
-                        <Icon type="navigate"></Icon>
-                        <span>自由行</span>
-                    </Checkbox>
-                    <Checkbox label="isFollowTeam">
-                        <Icon type="flag"></Icon>
-                        <span>跟团游</span>
-                    </Checkbox>
                 </CheckboxGroup>
                 </Col>
             </Row>
@@ -55,18 +39,6 @@
 
             <label>是否置顶:</label>
             <i-switch v-model="modifyObj.isSort"></i-switch>
-            <label>是否特价:</label>
-
-            <i-switch v-model="modifyObj.isSpecialPrice"></i-switch>
-            <label>是否推荐:</label>
-
-            <i-switch v-model="modifyObj.isRecommend"></i-switch>
-
-            <label>是否自由行:</label>
-            <i-switch v-model="modifyObj.isFreeTravel"></i-switch>
-
-            <label>是否跟团游:</label>
-            <i-switch v-model="modifyObj.isFollowTeam"></i-switch>
         </Modal>
 
     </div>
@@ -102,24 +74,20 @@ export default {
                 width: 150,
             },
             {
-                title: '置顶',
-                key: 'isSort'
+                title: '价格',
+                key: 'price'
             },
             {
-                title: '特价',
-                key: 'isSpecialPrice'
+                title: '发布日期',
+                key: 'startDate'
             },
             {
-                title: '自由行',
-                key: 'isFreeTravel'
+                title: '修改日期',
+                key: 'endDate'
             },
             {
-                title: '推荐',
+                title: '是否置顶',
                 key: 'isRecommend'
-            },
-            {
-                title: '跟团游',
-                key: 'isFollowTeam'
             },
             {
                 title: '分类',
@@ -214,6 +182,7 @@ export default {
             var _self = this
 
             network.getProductList((data) => {
+
                 _self.dataArray = data
                 _self.rawDataArray = data
 

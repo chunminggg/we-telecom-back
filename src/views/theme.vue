@@ -6,8 +6,8 @@
 
 <template>
     <div class="content">
-        <Input v-model="themeName" placeholder="主题名称(例:巴厘岛)" class="product"></Input>
-        <Input v-model="themeBrief" placeholder="主题简介" class="product"></Input>
+        <Input v-model="themeName" placeholder="分类名称(例:20M宽带)" class="product"></Input>
+        <Input v-model="themeBrief" placeholder="分类简介" class="product"></Input>
         <image-upload class="product" @send-image="getImageArray" :uploadList="imageArray"></image-upload>
         <Button type="success" class="product" long @click="submitData">确认提交</Button>
     
