@@ -67,7 +67,7 @@ export default {
     },
     data() {
         return {
-            richItems: [{ content: '', placeHolder: "套餐内容" }, { content: '', placeHolder: "活动介绍" }],
+            richItems: [{ content: '', placeHolder: "套餐内容" }, { content: '', placeHolder: "活动介绍" },{ content: '', placeHolder: "费用说明" },{ content: '', placeHolder: "预定须知" }],
 
             productId: '',
             //产品编号
