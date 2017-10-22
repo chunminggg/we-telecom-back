@@ -25,7 +25,7 @@ export default {
 
             return successCallback(file);
         }, function (error) {
-            debugger
+
             // 异常处理
             console.error(error);
         });
@@ -92,7 +92,7 @@ export default {
             return successCallback();
 
         }, function (error) {
-            debugger;
+
         });
     },
 
@@ -185,7 +185,7 @@ export default {
                     let myObj = {};
                     myObj.name = obj.attributes.name;
                     myObj.phoneNumber = obj.attributes.phoneNumber;
-                    myObj.peopleCount = obj.attributes.peopleCount;
+                    myObj.address = obj.attributes.address;
                     myObj.productName = obj.attributes.targetItem.attributes.name;
                     myObj.productNumber = obj.attributes.targetItem.attributes.onleyId;
                     myObj.createdAt = moment(obj.createdAt.toISOString()).format('LLLL');

@@ -14,8 +14,8 @@ export default {
                     key: 'name'
                 },
                 {
-                    title: '预定人数',
-                    key: 'peopleCount'
+                    title: '地址',
+                    key: 'address'
                 },
                 {
                     title: '电话',
@@ -42,6 +42,7 @@ export default {
     created() {
         var _self = this
         network.getUnReserveList((data) => {
+
             if (data.length)
                 _self.dataArray = data
 
